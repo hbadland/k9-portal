@@ -4,12 +4,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        gold: '#C9A84C',
-        dark: '#0E0D0B',
-        dark2: '#1A1916',
-        dark3: '#252420',
-        cream: '#F5EED8',
-        muted: '#6B6660',
+        forest:   '#1C3A2B',
+        green:    '#2D6A4F',
+        sage:     '#7DBF6E',
+        mint:     '#A8C5A0',
+        cream:    '#F5F0E8',
+        offwhite: '#FAF8F3',
+        charcoal: '#2A2A2A',
+        muted:    '#5A5A5A',
+      },
+      fontFamily: {
+        sans:  ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
       },
     },
   },

@@ -16,22 +16,22 @@ function formatTime(timeStr) {
 function Field({ label, value }) {
   if (!value) return null;
   return (
-    <div className="py-3 border-b border-dark3 last:border-0">
+    <div className="py-3 border-b border-forest/10 last:border-0">
       <p className="text-muted text-xs uppercase tracking-wide mb-0.5">{label}</p>
-      <p className="text-cream text-sm">{value}</p>
+      <p className="text-charcoal text-sm">{value}</p>
     </div>
   );
 }
 
 function StatusBadge({ status }) {
   const colours = {
-    confirmed:   'bg-green-900/40 text-green-400 border-green-700/40',
-    pending:     'bg-amber-900/40 text-amber-400 border-amber-700/40',
-    cancelled:   'bg-red-900/40 text-red-400 border-red-700/40',
-    in_progress: 'bg-blue-900/40 text-blue-400 border-blue-700/40',
-    completed:   'bg-slate-700/60 text-slate-300 border-slate-600/40',
+    confirmed:   'bg-green-100 text-green-800 border-green-200',
+    pending:     'bg-amber-100 text-amber-800 border-amber-200',
+    cancelled:   'bg-red-100 text-red-700 border-red-200',
+    in_progress: 'bg-blue-100 text-blue-800 border-blue-200',
+    completed:   'bg-forest/10 text-forest border-forest/20',
   };
-  const cls = colours[status] ?? 'bg-slate-800 text-slate-400 border-slate-700';
+  const cls = colours[status] ?? 'bg-cream text-muted border-forest/10';
   return (
     <span className={`inline-block text-sm px-3 py-1 rounded-full border ${cls}`}>
       {status}
@@ -64,25 +64,25 @@ export default function BookingDetailPage() {
     <div className="max-w-lg space-y-6">
       <button
         onClick={() => navigate('/bookings')}
-        className="text-muted text-sm hover:text-cream transition"
+        className="text-muted text-sm hover:text-forest transition"
       >
         ← Back to Bookings
       </button>
 
-      {error && <p className="text-red-400 text-sm">{error}</p>}
+      {error && <p className="text-red-600 text-sm">{error}</p>}
       {!booking && !error && <p className="text-muted text-sm">Loading…</p>}
 
       {booking && (
         <>
           <div className="flex items-start justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-bold text-cream">{serviceName}</h1>
+              <h1 className="font-serif text-2xl font-bold text-forest">{serviceName}</h1>
               <p className="text-muted text-sm mt-1">for {dogName}</p>
             </div>
             <StatusBadge status={booking.status} />
           </div>
 
-          <div className="bg-dark2 border border-dark3 rounded-2xl px-5 divide-y divide-dark3">
+          <div className="bg-cream border border-forest/10 rounded-2xl px-5 divide-y divide-forest/10">
             <Field label="Date" value={formatDate(booking.date)} />
             <Field
               label="Time"
@@ -103,7 +103,7 @@ export default function BookingDetailPage() {
 
           <button
             onClick={() => navigate(`/messages`)}
-            className="text-gold text-sm hover:opacity-80 transition"
+            className="text-forest text-sm hover:opacity-70 transition"
           >
             View messages for this booking →
           </button>

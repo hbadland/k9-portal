@@ -13,9 +13,9 @@ function ageLabel(months) {
 function Field({ label, value }) {
   if (!value) return null;
   return (
-    <div className="py-3 border-b border-dark3 last:border-0">
+    <div className="py-3 border-b border-forest/10 last:border-0">
       <p className="text-muted text-xs uppercase tracking-wide mb-0.5">{label}</p>
-      <p className="text-cream text-sm whitespace-pre-line">{value}</p>
+      <p className="text-charcoal text-sm whitespace-pre-line">{value}</p>
     </div>
   );
 }
@@ -42,12 +42,12 @@ export default function DogDetailPage() {
     <div className="max-w-lg space-y-6">
       <button
         onClick={() => navigate('/dogs')}
-        className="text-muted text-sm hover:text-cream transition"
+        className="text-muted text-sm hover:text-forest transition"
       >
         ← Back to My Dogs
       </button>
 
-      {error && <p className="text-red-400 text-sm">{error}</p>}
+      {error && <p className="text-red-600 text-sm">{error}</p>}
       {!dog && !error && <p className="text-muted text-sm">Loading…</p>}
 
       {dog && (
@@ -57,20 +57,20 @@ export default function DogDetailPage() {
               <img
                 src={dog.avatar_url}
                 alt={dog.name}
-                className="w-20 h-20 rounded-full object-cover border border-dark3"
+                className="w-20 h-20 rounded-full object-cover border border-forest/20"
               />
             ) : (
-              <div className="w-20 h-20 rounded-full bg-dark3 flex items-center justify-center text-4xl">
-                🐾
+              <div className="w-20 h-20 rounded-full bg-forest flex items-center justify-center">
+                <span className="text-cream text-3xl font-serif font-bold">{dog.name?.[0]?.toUpperCase()}</span>
               </div>
             )}
             <div>
-              <h1 className="text-2xl font-bold text-cream">{dog.name}</h1>
+              <h1 className="font-serif text-2xl font-bold text-forest">{dog.name}</h1>
               {dog.breed && <p className="text-muted text-sm">{dog.breed}</p>}
             </div>
           </div>
 
-          <div className="bg-dark2 border border-dark3 rounded-2xl px-5 divide-y divide-dark3">
+          <div className="bg-cream border border-forest/10 rounded-2xl px-5 divide-y divide-forest/10">
             <Field label="Age" value={ageLabel(dog.age_months)} />
             <Field label="Notes" value={dog.notes} />
             <Field label="Vet name" value={dog.vet_name} />
